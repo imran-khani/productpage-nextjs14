@@ -2,8 +2,8 @@ import { fetchProducts } from "@/lib/data";
 import { Metadata } from "next";
 import Image from "next/image";
 
-const singleProduct = async ({ id }: { id: number }) => {
-  return (await fetchProducts()).find((product) => product.id === id);
+const singleProduct = async ({ id }: { id: string }) => {
+  return (await fetchProducts()).find((product) => product.id == id);
 };
 
 export const metadata: Metadata = {
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description: "Product Details",
 };
 
-const productPage = async ({ params }: { params: { id:number } }) => {
+const productPage = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
-  console.log(typeof id)     
+  console.log(typeof id);     
   const product = await singleProduct({ id });
   console.log(product);
   return (
-    <div className=" container mx-auto px-5" >
+    <div className=" container mx-auto px-5">
       <h1>
         <span className="block text-center text-4xl font-bold text-gray-800 mb-5 -my-10">
           Product Details
@@ -55,7 +55,3 @@ const productPage = async ({ params }: { params: { id:number } }) => {
 
 export default productPage;
 
-export const getStaticParams = async () => {
-  const products = await fetchProducts();
-  return products.map((product) => ({ id: product.id }));
-};
