@@ -1,9 +1,15 @@
 import { fetchProducts } from "@/lib/data";
+import { Metadata } from "next";
 import Image from "next/image";
 
 const singleProduct = async ({ id }: { id: number }) => {
-  return (await fetchProducts()).find((product) => product.id === Number(id));
+  return (await fetchProducts()).find((product) => product.id === id);
 };
+
+export const metadata:Metadata ={
+  title: "Product Details",
+  description: "Product Details",
+}
 
 const productPage = async ({ params }: { params: { id: number } }) => {
   const { id } = params;
