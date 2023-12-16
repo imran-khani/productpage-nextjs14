@@ -6,10 +6,10 @@ const singleProduct = async ({ id }: { id: number }) => {
   return (await fetchProducts()).find((product) => product.id === id);
 };
 
-export const metadata:Metadata ={
+export const metadata: Metadata = {
   title: "Product Details",
   description: "Product Details",
-}
+};
 
 const productPage = async ({ params }: { params: { id: number } }) => {
   const { id } = params;
