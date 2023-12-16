@@ -5,7 +5,7 @@ type Products = {
     price: number,
     description: string,
     category: string,
-    image: string
+    image: string;
 }
 
 export const fetchProducts = async () => {
