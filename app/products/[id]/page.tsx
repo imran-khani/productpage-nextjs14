@@ -10,7 +10,7 @@ const productPage = async ({ params }: { params: { id: number } }) => {
   const product = await singleProduct({ id });
   console.log(product);
   return (
-    <div className=" container mx-auto px-5">
+    <div className=" container mx-auto px-5" key={product?.id}>
       <h1>
         <span className="block text-center text-4xl font-bold text-gray-800 mb-5 -my-10">
           Product Details
