@@ -16,7 +16,7 @@ const Products = async () => {
       <div className="py-5 container mx-auto px-5">
         <div className="grid grid-cols-1 gap-5 place-items-center sm:grid-cols-2 md:grid-cols-3 p-4">
           {data.map((product) => (
-            <Link href={`/products/${product.id}`}>
+            <Link href={`/products/${product.id}`} key={product.id}>
               <div
                 className=" h-full border-2 border-gray-200 border-opacity-60 rounded-lg p-5"
                 key={product.id}
