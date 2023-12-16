@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Products = async () => {
   const data = await fetchProducts();
-  
+
   return (
     <section className="text-gray-600">
       <h1>
@@ -12,7 +12,7 @@ const Products = async () => {
           Products
         </span>
       </h1>
-      
+
       <div className="py-5 container mx-auto px-5">
         <div className="grid grid-cols-1 gap-5 place-items-center sm:grid-cols-2 md:grid-cols-3 p-4">
           {data.map((product) => (
